@@ -2,9 +2,9 @@
 
 ```ruby
 class Document
-   attr_writer :content 
+   attr_accessor :content, :title
 
-  def initialise
+  def initialize
     @content = content
     @title = title
   end
