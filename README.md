@@ -26,24 +26,23 @@ puts doc
 #### I made a mistake in the RubyExam, can you find it?
 
 ```ruby
-module RubyExam
+class RubyExam
   def initialize
     @score = 0
     @current_question = 1
   end
 
   def got_one_right
-    @score++
-    next
+    @score+=1
+    self.next
   end
 
   def got_one_wrong
-    @score--
-    next
+    self.next
   end
 
   def next
-    @current_question++
+    @current_question+=1
   end
 
   def redo
@@ -55,7 +54,7 @@ module RubyExam
     if @score < 10
       puts 'Game Over'
     else
-      redo
+      self.redo
     end
     puts "Final Score: #{@score}"
   end
@@ -70,9 +69,9 @@ exam.complete
 
 #### What are 3 ways to create a new Hash?
 
-- *give me answer*
-- *give me answer*
-- *give me answer*
+- Hash.new()
+- h = {"k" => "v"}
+- h = {"k":"v"}
 
 #### Which of the following are valid for __X__?
 
@@ -81,7 +80,7 @@ def save!(array)
   raise ArgumentError.new('arg should be array') unless array.is_a?(Array)
 
   # do stuff ..
-rescue __X__
+rescue ArgumentError => e
   puts 'Failed to save!'
   puts $1
   puts $1.message
@@ -91,11 +90,11 @@ end
 ```
 
 - [ ] `Error => e`
-- [ ] *nothing*
+- [x] *nothing*
 - [ ] `SystemError => e`
-- [ ] `ArgumentError => e`
-- [ ] `StandardError => e`
-- [ ] `ArgumentError`
+- [x] `ArgumentError => e`
+- [x] `StandardError => e`
+- [x] `ArgumentError`
 - [ ] ` => ArgumentError`
 - [ ] ` => argument_error`
 
@@ -110,7 +109,7 @@ p d.to_s
 - [ ] `"1998-01-01"`
 - [ ] `"1998-12-31"`
 - [ ] `"1998-12-01"`
-- [ ] an exception
+- [x] an exception
 
 #### What is the correct output for:
 
@@ -122,7 +121,7 @@ p d.to_s
 - [ ] `"2018-12-31"`
 - [ ] `"2020-01-31"`
 - [ ] `"2019-02-31"`
-- [ ] `"2019-02-28"`
+- [x] `"2019-02-28"`
 - [ ] an exception
 
 
@@ -133,10 +132,10 @@ toybox = { "doll" => 'Sally' }
 ```
 
 - [ ] `toybox.doll`
-- [ ] `toybox['doll']`
-- [ ] `toybox["doll"]`
+- [x] `toybox['doll']`
+- [x] `toybox["doll"]`
 - [ ] `toybox[:doll]`
-- [ ] `toybox.try('doll')`
+- [x] `toybox.try('doll')`
 
 #### The following regexp is incorrect please fix it, it should *ONLY* match:
 
@@ -145,7 +144,7 @@ toybox = { "doll" => 'Sally' }
 - .tsx
 - .tsx.erb
 
-`/^\.(ts|tsx)?(\.erb)?$/`
+`/^\.(ts|tsx)(\.erb)?$/`
 
 Here is a good editor for regexp, maybe try and do it without using it first tho: https://rubular.com/
 
@@ -156,14 +155,14 @@ Here is a good editor for regexp, maybe try and do it without using it first tho
 File.dirname(__FILE__)
 ```
 
-- *give me answer*
+- precious
 
 ```ruby
 # /User/tom/junk/ring.rb
 File.path(__dir__)
 ```
 
-- *give me answer*
+- /User/tom/junk/
 
 #### Write the following method that would give me the correct return value:
 
@@ -173,6 +172,11 @@ bark { "Oki" }
 ```
 
 - *give me answer*
+```ruby
+def bark doggo
+   puts "#{doggo} yips!" 
+end
+```
 
 #### What is the result of the following:
 
