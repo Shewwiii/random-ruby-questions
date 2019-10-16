@@ -184,7 +184,7 @@ end
 teams = [['greg', 'bob']]
 teams << if teams.size < 2
   ['jim', 'jerry']
-elseif teams > 2
+elseif teams > 2  #is this a trick question because pretty sure ruby doesn't spell elsif properly
   ['sam']
 else
   ['tony']
@@ -192,3 +192,4 @@ end
 
 p teams.flat_map { |t| t }
 ```
+['greg','bob','jim','jerry']
